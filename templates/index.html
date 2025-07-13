@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gemma Chat</title>
+  <meta name="author" content="Hélio">
+  <meta name="description" content="Gemma Chat">
+  <link rel="stylesheet" href="https://unpkg.com/missing.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" type="text/css" media="all">
+  <link rel="icon" href="{{ url_for('static', filename='favicon.svg') }}" type="image/svg">
+</head>
+
+<body>
+  <header class="center">
+    <h1>Gemma Chat</h1>
+  </header>
+
+  <main>
+    <section class="messages">
+    </section>
+
+    <section>
+      <form action="/chat" method="post">
+        <p>
+          <textarea name="message" rows="5" cols="30" placeholder="Converse com o Gemma" required></textarea>
+        </p>
+        <p>
+          <button type="submit">Enviar Mensagem</button>
+        </p>
+        <p>
+          <label for="file-upload">Anexe arquivos</label>
+          <input type="file" id="file-upload" name="file-upload" accept=".jpg, .jpeg, .png" multiple>
+        </p>
+      </form>
+
+      <p id="upload-banner">
+      </p>
+    </section>
+  </main>
+
+  <script src="{{ url_for('static', filename='chat.js') }}"></script>
+  <script src="{{ url_for('static', filename='event-listener.js') }}"></script>
+
+</body>
+
+</html>
