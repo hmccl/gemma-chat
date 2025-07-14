@@ -20,7 +20,7 @@ load_dotenv()
 ALLOWED_EXTENSIONS = {"png", "jpg", "jpeg"}
 
 client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
-chat_session = client.chats.create(model="gemma-3-4b-it")
+chat_session = client.chats.create(model="gemini-2.0-flash-lite")
 
 app = Flask(__name__, static_folder="static", template_folder="templates")
 
