@@ -104,8 +104,9 @@ def stream():
 
         for chunk in response:
             if chunk.text:
-                assistant_response_content = chunk.text.replace('\n', '\\n').replace('\r', '\\r')
+                assistant_response_content = chunk.text.replace("\n", "\\n").replace(
+                    "\r", "\\r"
+                )
                 yield f"data: {assistant_response_content}\n\n"
-
 
     return Response(stream_with_context(generate()), mimetype="text/event-stream")

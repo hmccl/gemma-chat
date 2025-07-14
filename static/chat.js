@@ -44,9 +44,8 @@ document.querySelector("form").addEventListener("submit", function (event) {
         // Open a connection to receive streamed responses
         const eventSource = new EventSource("/stream");
         eventSource.onmessage = function (event) {
-          const currentText = assistantMessageDiv.textContent;
           const newText = event.data.replace(/\\n/g, '\n').replace(/\\r/g, '\r');
-    
+
           assistantMessageDiv.textContent += newText;
           chatContainer.scrollTop = chatContainer.scrollHeight;
         };
