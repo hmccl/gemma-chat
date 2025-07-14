@@ -42,12 +42,12 @@ def upload_file():
     global next_image
 
     if "file" not in request.files:
-        return jsonify(success=False, message="No file part")
+        return jsonify(success=False, message="Sem arquivo")
 
     file = request.files["file"]
 
     if file.filename == "":
-        return jsonify(success=False, message="No selected file")
+        return jsonify(success=False, message="Nenhum arquivo selecionado")
     if file and allowed_file(file.filename):
         filename = secure_filename(file.filename)
 
@@ -58,10 +58,10 @@ def upload_file():
 
         return jsonify(
             success=True,
-            message="File uploaded successfully and added to the conversation",
+            message="Arquivo anexado com sucesso",
             filename=filename,
         )
-    return jsonify(success=False, message="File type not allowed")
+    return jsonify(success=False, message="Tipo de arquivo não permitido")
 
 
 @app.route("/", methods=["GET"])

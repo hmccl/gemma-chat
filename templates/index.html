@@ -18,25 +18,27 @@
   </header>
 
   <main>
+    <section>
+      <p id="upload-banner">
+      </p>
+    </section>
+
     <section class="messages">
     </section>
 
     <section>
       <form action="/chat" method="post">
         <p>
-          <textarea name="message" rows="5" cols="30" placeholder="Converse com o Gemma" required></textarea>
+          <textarea name="message" rows="3" cols="30" placeholder="Converse com o Gemma" required></textarea>
         </p>
         <p>
-          <button type="submit">Enviar Mensagem</button>
+          <strong><button type="submit">Enviar Mensagem</button></strong>
         </p>
         <p>
           <label for="file-upload">Anexe arquivos</label>
           <input type="file" id="file-upload" name="file-upload" accept=".jpg, .jpeg, .png">
         </p>
       </form>
-
-      <p id="upload-banner">
-      </p>
     </section>
   </main>
 
