@@ -45,17 +45,9 @@ document.querySelector("form").addEventListener("submit", function (event) {
         const eventSource = new EventSource("/stream");
         eventSource.onmessage = function (event) {
           const currentText = assistantMessageDiv.textContent;
-          const newText = event.data;
-          const lastChar = currentText.slice(-1);
-
-          // Check if we need to add a space (streamed chunks might be missing it)
-          if (/[.,!?]/.test(lastChar) && newText.charAt(0) !== " ") {
-            assistantMessageDiv.textContent += " " + newText;
-          } else {
-            assistantMessageDiv.textContent += newText;
-          }
-
-          // Scroll to the bottom of the chat container
+          const newText = event.data.replace(/\\n/g, '\n').replace(/\\r/g, '\r');
+    
+          assistantMessageDiv.textContent += newText;
           chatContainer.scrollTop = chatContainer.scrollHeight;
         };
         eventSource.onerror = function () {

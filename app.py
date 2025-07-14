@@ -103,9 +103,9 @@ def stream():
             next_message = ""
 
         for chunk in response:
-            # Check if chunk.text is not None before processing
-            if chunk.text is not None:
-                assistant_response_content += chunk.text
-                yield f"data: {chunk.text}\n\n"
+            if chunk.text:
+                assistant_response_content = chunk.text.replace('\n', '\\n').replace('\r', '\\r')
+                yield f"data: {assistant_response_content}\n\n"
+
 
     return Response(stream_with_context(generate()), mimetype="text/event-stream")
