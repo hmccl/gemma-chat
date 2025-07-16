@@ -2,6 +2,8 @@
 
 Uma simples interface de chat para os modelos Gemini.
 
+![Screenshot do Lite Chat](./screenshot.png)
+
 ## Setup
 
 1. Clone esse repositório.
